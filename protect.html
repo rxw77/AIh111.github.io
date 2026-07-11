@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>保护动物专栏 | 守护生命·敬畏自然</title>
 
-    <!-- ==================== 样式 ==================== -->
+    <!-- ==================== 样式（完全保留原设计） ==================== -->
     <style>
         :root {
             --primary: #2d6a4f;
@@ -881,7 +880,7 @@
 
     <!-- ==================== 顶部导航 ==================== -->
     <nav class="top-nav" id="topNav">
-        <a href="/blog" class="nav-brand" title="返回博客主页">
+        <a href="index.html" class="nav-brand" title="返回博客主页">
             <span class="brand-icon">🌿</span>
             <span>自然笔记</span>
         </a>
@@ -891,7 +890,7 @@
             <li><a href="#knowledge">💡 保护小知识</a></li>
             <li><a href="#rescue">🩺 救助科普</a></li>
         </ul>
-        <a href="/blog" class="nav-back" title="返回博客主页">← 返回主页</a>
+        <a href="index.html" class="nav-back" title="返回博客主页">← 返回主页</a>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">☰</button>
     </nav>
 
@@ -1113,7 +1112,7 @@
 
     <!-- ==================== 页脚 ==================== -->
     <footer class="column-footer">
-        <p>🌍 保护动物专栏 · 守护每一个生命 | <a href="/blog">返回博客主页</a></p>
+        <p>🌍 保护动物专栏 · 守护每一个生命 | <a href="index.html">返回博客主页</a></p>
         <p style="font-size:0.75rem;margin-top:4px;">内容仅供参考，具体救助操作请遵循当地专业机构指导。保护野生动物，人人有责。</p>
     </footer>
 
@@ -1133,7 +1132,7 @@
     <!-- ==================== JavaScript ==================== -->
     <script>
         (function() {
-            // ============ 动物数据（已按用户要求替换多个物种图片） ============
+            // ============ 动物数据（本地图片路径） ============
             const animalsData = [{
                 id: 'giant-panda',
                 name: '大熊猫',
@@ -1145,7 +1144,7 @@
                 status: '易危（降级）',
                 statusClass: '',
                 description: '国宝级物种，中国特有。经数十年保护，种群稳步增长。',
-                imageUrl: 'https://c-ssl.duitang.com/uploads/item/201910/13/20191013224426_bucog.jpeg'
+                imageUrl: 'images/大熊猫.JPG'
             }, {
                 id: 'siberian-tiger',
                 name: '东北虎',
@@ -1169,8 +1168,7 @@
                 status: '近危',
                 statusClass: '',
                 description: '高原精灵，因沙图什披肩盗猎曾濒临灭绝，保护成效显著。',
-                // 已替换为用户指定链接
-                imageUrl: 'https://c-ssl.duitang.com/uploads/blog/202204/23/20220423121144_3acf6.jpeg'
+                imageUrl: 'images/藏羚羊.JPG'
             }, {
                 id: 'golden-monkey',
                 name: '川金丝猴',
@@ -1194,8 +1192,7 @@
                 status: '濒危',
                 statusClass: 'endangered',
                 description: '象征长寿与吉祥，湿地生态系统的旗舰物种。',
-                // 已替换为用户指定链接
-                imageUrl: 'https://c-ssl.duitang.com/uploads/item/201909/11/20190911225211_cywvg.jpg'
+                imageUrl: 'images/丹顶鹤.JPG'
             }, {
                 id: 'crested-ibis',
                 name: '朱鹮',
@@ -1207,8 +1204,7 @@
                 status: '濒危',
                 statusClass: 'endangered',
                 description: '从仅存7只到数千只，是中国保护生物学最成功的案例之一。',
-                // 已替换为用户指定链接
-                imageUrl: 'https://c-ssl.duitang.com/uploads/item/201312/30/20131230123024_xZZB8.jpeg'
+                imageUrl: 'images/朱鹮.JPG'
             }, {
                 id: 'chinese-alligator',
                 name: '扬子鳄',
@@ -1220,8 +1216,7 @@
                 status: '极危',
                 statusClass: 'endangered',
                 description: '中国特有的小型鳄鱼，野生种群极度濒危。',
-                // 已替换为用户指定链接
-                imageUrl: 'https://c-ssl.duitang.com/uploads/item/201610/02/20161002225752_P2Nre.jpeg'
+                imageUrl: 'images/扬子鳄.JPG'
             }, {
                 id: 'chinese-sturgeon',
                 name: '中华鲟',
@@ -1233,8 +1228,7 @@
                 status: '极危',
                 statusClass: 'endangered',
                 description: '古老的洄游鱼类，葛洲坝等水利工程对其洄游路线造成严重影响。',
-                // 已替换为用户指定链接
-                imageUrl: 'https://vcg03.cfp.cn/creative/vcg/800/new/VCG211378374641.jpg'
+                imageUrl: 'images/中华鲟.JPG'
             }];
 
             // ============ 渲染图鉴卡片 ============
@@ -1247,7 +1241,7 @@
 
                 cardsGrid.innerHTML = filtered.map(animal => `
                     <div class="animal-card" data-category="${animal.category}" data-id="${animal.id}"
-                         onclick="openLightbox('${animal.imageUrl.replace('w=600&h=400', 'w=1200&h=800')}', '${animal.name} —— ${animal.description}')">
+                         onclick="openLightbox('${animal.imageUrl}', '${animal.name} —— ${animal.description}')">
                         <div class="card-img-wrapper">
                             <img src="${animal.imageUrl}"
                                  alt="${animal.name}"
@@ -1446,8 +1440,8 @@
             updateActiveNav();
 
             console.log('🌿 保护动物专栏已就绪');
-            console.log('   📖 国家一级保护动物图鉴 — ' + animalsData.length + ' 个物种（图片已按需求替换）');
-            console.log('   🐼 大熊猫、藏羚羊、丹顶鹤、朱鹮、扬子鳄、中华鲟已使用指定图片');
+            console.log('   📖 国家一级保护动物图鉴 — 8 个物种（本地图片已应用）');
+            console.log('   🔗 返回主页链接已指向 index.html');
             console.log('   📊 濒危动物现状文章');
             console.log('   💡 野生动物保护小知识 — 6 条');
             console.log('   🩺 动物救助公益科普 — 3 步流程 + 补充文章');
